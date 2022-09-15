@@ -1,5 +1,9 @@
 # Python-GameOfLife
-Conway's Game Of Life recreated using Python
+
+Conway's Game Of Life recreated using Python's pygame and C's fast calculations.  
+My previous project was using only Python's numpy libraray to calculate cells.  
+This project is 10-15 times faster than my previous [Python-GameOfLife] project.  
+
 ### Rules
 The universe of the Game of Life is an infinite, two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead (or populated and unpopulated, respectively). Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
 
@@ -43,12 +47,14 @@ For further explanation check this [wiki] page.
 ```sh
 git clone https://github.com/EmirBaran-Ozdemir/Python-GameOfLife.git
 pip install -r requirements.txt
+cc -fPIC -shared -o c_sum.so c_sum.c
 python main.py
 ```
 ### BADGES
 [![GitHub issues](https://img.shields.io/github/issues/EmirBaran-Ozdemir/Python-GameOfLife?style=plastic)](https://github.com/EmirBaran-Ozdemir/Python-GameOfLife/issues) [![GitHub forks](https://img.shields.io/github/forks/EmirBaran-Ozdemir/Python-GameOfLife?style=plastic)](https://github.com/EmirBaran-Ozdemir/Python-GameOfLife/network) [![GitHub stars](https://img.shields.io/github/stars/EmirBaran-Ozdemir/Python-GameOfLife?style=plastic)](https://github.com/EmirBaran-Ozdemir/Python-GameOfLife/stargazers) [![GitHub license](https://img.shields.io/github/license/EmirBaran-Ozdemir/Python-GameOfLife?color=succes&style=plastic)](https://github.com/EmirBaran-Ozdemir/Python-GameOfLife/blob/main/LICENSE)  
 [![Twitter](https://img.shields.io/twitter/url?label=Personal-Twitter&style=social&url=https%3A%2F%2Ftwitter.com%2FWileLord)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FEmirBaran-Ozdemir%2FOpenCVPython)
 
+[Python-GameOfLife]:<https://github.com/EmirBaran-Ozdemir/Python-GameOfLife>
 [wiki]:<https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life>
 [numpy]:<https://pypi.org/project/numpy/>
 [pygame]:<https://pypi.org/project/pygame/>
