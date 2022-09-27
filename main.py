@@ -1,5 +1,3 @@
-# mat_add_test.py
-
 import time
 import pygame
 import ctypes
