@@ -12,15 +12,21 @@ COLOR_DIE_NEXT = (170, 0, 0)  # Color for next dying square
 COLOR_ALIVE_NEXT = (0, 255, 0)  # Color for alive squares
 COLOR_ALIVE = (255, 255, 255)
 
-cellCount = 80
-nRow = cellCount
-nCol = cellCount
 drawingFPS = 999
-# screenWidth = GetSystemMetrics(0)
+size = 13
+screenWidth = GetSystemMetrics(0)
 screenHeight = GetSystemMetrics(1)
+# Getting number of rows and correcting screen height
+nRow = screenHeight / size
+nRow = int(nRow)
+screenHeight = nRow * size
+# Getting number of cols and correcting screen width
+nCol = screenWidth / size
+nCol = int(nCol)
+screenWidth = nCol * size
 #################################################
 # Defining DLL and function(s)
-objDLL = ctypes.CDLL("./c_sum.so")
+objDLL = ctypes.CDLL("./c_calculations.so")
 c_updateCells = objDLL.c_updateCells
 c_updateCells.argtypes = [
     ctypes.c_int64,
@@ -62,9 +68,10 @@ def paintCells(screen, cellsNow, size, withProgress=False):
 def main():
     pygame.display.set_caption("Game Of Life")
     pygame.init()
-    screen = pygame.display.set_mode((screenHeight, screenHeight - 100))  # Window size
-    size = screenHeight / cellCount
-    size = int(size + 1)
+
+    screen = pygame.display.set_mode(
+        (screenWidth - (screenHeight / 10), screenHeight - (screenHeight / 10))
+    )  # Window size
     # Defining fpsClock to lower down the game speed
     fpsClock = pygame.time.Clock()
     # Defining font for displaying FPS
