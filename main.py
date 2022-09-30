@@ -17,13 +17,17 @@ size = 13
 screenWidth = GetSystemMetrics(0)
 screenHeight = GetSystemMetrics(1)
 # Getting number of rows and correcting screen height
+screenHeight = screenHeight - (screenHeight / 10)
 nRow = screenHeight / size
 nRow = int(nRow)
 screenHeight = nRow * size
+
 # Getting number of cols and correcting screen width
+screenWidth = screenWidth - (screenWidth / 10)
 nCol = screenWidth / size
 nCol = int(nCol)
 screenWidth = nCol * size
+
 #################################################
 # Defining DLL and function(s)
 objDLL = ctypes.CDLL("./c_calculations.so")
@@ -69,9 +73,7 @@ def main():
     pygame.display.set_caption("Game Of Life")
     pygame.init()
 
-    screen = pygame.display.set_mode(
-        (screenWidth - (screenHeight / 10), screenHeight - (screenHeight / 10))
-    )  # Window size
+    screen = pygame.display.set_mode((screenWidth, screenHeight))  # Window size
     # Defining fpsClock to lower down the game speed
     fpsClock = pygame.time.Clock()
     # Defining font for displaying FPS
