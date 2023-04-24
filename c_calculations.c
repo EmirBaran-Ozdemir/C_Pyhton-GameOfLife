@@ -28,8 +28,8 @@ void c_updateCells(int64_t ROW, int64_t COL, int64_t cellsNow[][COL])
             }
             else
             {
-                start_col = c_row - 1;
-                finish_col = c_row;
+                start_row = c_row - 1;
+                finish_row = c_row;
             }
 
             if (c_col > 0 && c_col < COL - 1)
@@ -114,8 +114,8 @@ void c_updateCells(int64_t ROW, int64_t COL, int64_t cellsNow[][COL])
             }
             else
             {
-                start_col = c_row - 1;
-                finish_col = c_row;
+                start_row = c_row - 1;
+                finish_row = c_row;
             }
 
             if (c_col > 0 && c_col < COL - 1)
